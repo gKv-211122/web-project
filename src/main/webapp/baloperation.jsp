@@ -10,8 +10,21 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+
+<style>
+h1 {
+	background-color: blue;
+	text-align: center;
+	color: white;
+}
+</style>
 </head>
 <body>
+
+	<h1>
+		<b>YOUR ACCOUNT BALANCE IS... (National Bank) </b>
+	</h1>
+
 
 	<%
 	String id = request.getParameter("userid");
@@ -37,21 +50,18 @@
 
 			if (rs.getString(1).equals(accno)) {
 
-		out.println("You are updating your balance...\n");
-		
+		out.println("processing...\n");
+
 		String que2 = "SELECT balance FROM accountdetails where id= '" + Integer.parseInt(id) + "'";
 
 		PreparedStatement psd = con.prepareStatement(que2);
 
-		
-
+		out.println("<b></b>");
 		ResultSet rs1 = psd.executeQuery();
 
-		while (rs1.next()) {
+			while (rs1.next()) {
 
-			out.println("\n*********CURRENT BALANCE IS: " + rs1.getInt(1));
-
-
+			out.println("\n<b>CURRENT BALANCE IS >>>> </b>" + "<b>" + rs1.getInt(1) + "</b>" + "<b>/-</b>");
 
 		}
 
@@ -66,10 +76,14 @@
 		e.printStackTrace();
 		out.print(e);
 	}
+	
 	%>
 
-
-
+	<br>
+	<br>
+	<a href="landingpage.html">
+		<button type="button" style="background-color: black; color: white;">Home</button>
+	</a>
 
 </body>
 </html>

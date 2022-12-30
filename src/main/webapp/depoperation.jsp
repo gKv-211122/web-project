@@ -11,18 +11,31 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Banking System</title>
+
+<style>
+h1 {
+	background-color: blue;
+	text-align: center;
+	color: white;
+}
+</style>
+
 </head>
 <body>
+
+	<h1>DEPOSITE YOUR AMOUNT...</h1>
 	<%
 	String id = request.getParameter("userid");
 	String accno = request.getParameter("accno");
 	String amount = request.getParameter("amount");
 	%>
 
-	<%="Your Id Is : " + id%><br />
-	<%="Your Acc. No Is : " + accno%><br />
-	<%="Your Deposite Amount Is : " + amount + "/-"%><br />
+	<%="Id Is : " + id%><br />
+	<%="Acc. No Is : " + accno%><br />
+	<%="Amount To Be Deposite Is : " + amount + "/-"%><br />
 
+	<hr style="color: black">
+	<br>
 	<%
 	try {
 
@@ -36,40 +49,29 @@
 		ResultSet rs = ps.executeQuery();
 
 		while (rs.next()) {
-
 			 
 			if (rs.getString(1).equals(accno)) {
 
-		out.println("You are updating your balance...\n");
-		// out.println(rs.getString(1));
+				out.println("You are updating your balance...\n");
+				
+				String que2 = "SELECT balance FROM accountdetails where id= '" + Integer.parseInt(id) + "'";
+				PreparedStatement psd = con.prepareStatement(que2);
 
-		
-		String que2 = "SELECT balance FROM accountdetails where id= '" + Integer.parseInt(id) + "'";
+				ResultSet rs1 = psd.executeQuery();
 
-		PreparedStatement psd = con.prepareStatement(que2);
-		
-		// psd.setInt(1, Integer.parseInt(id));
-
-		ResultSet rs1 = psd.executeQuery();
-
-		while (rs1.next()) {
+				while (rs1.next()) {
 			
-			out.println("\n*********current balance is: "+rs1.getInt(1));
+					Integer st = rs1.getInt(1);
+					out.println("<br/>");
+					out.println("<b>current balance is: </b>"+st+"<b>/-</b>");
 			
 			
-			// update the balance
-			String query3 = "update accountdetails set balance=? where id=? ";
-			PreparedStatement psu = con.prepareStatement(query);
+					// update the balance
+					
 			
-			psu.setInt(1, (rs1.getInt(1) + (Integer.parseInt(amount))));
-			psu.setString(2, id);
-			
-			psu.executeUpdate();
-			out.println("\nYour Balance Is Successfully Updated !!!");
-			
-		}
-		
-		
+					out.println(", <h3><b> Your Balance Is Successfully Updated !!!</b></h3>");
+				
+				}
 
 			} else {
 
@@ -83,6 +85,12 @@
 		out.print(e);
 	}
 	%>
+	
+	<br>
+	<br>
+	<a href="landingpage.html">
+		<button type="button" style="background-color: black; color: white;">Home</button>
+	</a>
 
 </body>
 </html>
