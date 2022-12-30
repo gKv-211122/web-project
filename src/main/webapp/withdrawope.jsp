@@ -22,6 +22,9 @@
 	h3 {
 		color: green;
 	}
+	h4 {
+		color: red;
+	}
 	
 	.btn {
 		background-color: black; 
@@ -38,7 +41,7 @@
             color: black;
             font-size: 20px;
             cursor: pointer;
-        }
+      }
 	
 	</style>
 </head>
@@ -51,9 +54,7 @@
 	String amount = request.getParameter("amount");
 	%>
 
-	<%="Id Is : " + id%><br />
-	<%="Acc. No Is : " + accno%><br />
-	<%="Amount To Be Deposite Is : " + amount + "/-"%><br />
+	
 
 	<hr style="color: black">
 	<br>
@@ -81,27 +82,51 @@
 		ResultSet rs1 = psd.executeQuery();
 
 		while (rs1.next()) {
+			
+			try {
+				
+				if(rs1.getInt(1) < Integer.parseInt(amount)){
+					
+					out.println("<br><br>");
+					out.println("<h4 >INSUFFICIENT BALANCE !!!</h4>");
+					
+				}else {
+					
+					out.println("<br>");
+					out.print("Id Is : " + id);
+					out.print(",   Acc. No Is : " + accno);
+					out.print(",   Amount To Be Withdraw Is : " + amount + "/-");
+					
+					
+					Integer st = rs1.getInt(1);
+					out.println("<br/>");
+					out.println("<b>current balance is: </b>" + "<b>" + st + "</b>" + "<b>/-</b>");
 
-			Integer st = rs1.getInt(1);
-			out.println("<br/>");
-			out.println("<b>current balance is: </b>" + "<b>" + st + "</b>" + "<b>/-</b>");
+					// update the balance
+					String query3 = "update accountdetails set balance=? where accno=? ";
 
-			// update the balance
-			String query3 = "update accountdetails set balance=? where accno=? ";
+					PreparedStatement psu = con.prepareStatement(query3);
+					psu.setInt(1, (st - (Integer.parseInt(amount))));
+					psu.setString(2, accno);
+					psu.executeUpdate();
 
-			PreparedStatement psu = con.prepareStatement(query3);
-			psu.setInt(1, (st - (Integer.parseInt(amount))));
-			psu.setString(2, accno);
-			psu.executeUpdate();
-
-			out.println(", <h3 ><b> Your Amount Is Successfully Withdrawl !!!</b></h3>");
-			out.println("<h3 >Updated Balance Is: </h3>" + "<b>" + (st - (Integer.parseInt(amount))) + "</b>"
-					+ "<b>/-</b>");
+					out.println(", <h3 ><b> Your Amount Is Successfully Withdrawl !!!</b></h3>");
+					out.println("<h3 >Avialable Balance Is: </h3>" + "<b>" + (st - (Integer.parseInt(amount))) + "</b>"
+							+ "<b>/-</b>");
+				}
+				
+			}catch(Exception e) {
+				
+				out.print(e);
+				
+			}
+			
+			
 		}
 
 			} else {
 
-		out.println("Invalid Credentials !!!! ....");
+				out.println("Invalid Credentials !!!! ....");
 			}
 		}
 
@@ -113,6 +138,7 @@
 	%>
 
 	<br>
+	<br><br>
 
 	<a href="landingpage.html">
 		<button type="button" class="btn">Home</button>

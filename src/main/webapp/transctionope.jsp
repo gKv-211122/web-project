@@ -1,3 +1,5 @@
+<%@page import="java.sql.Connection"%>
+<%@page import="com.banking.system.JdbcConn"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -47,9 +49,17 @@
 
 	<%="Id Is : " + id%><br />
 	<%="Acc. No Is : " + accno%><br />
-	<%="Amount To Be Deposite Is : " + amount + "/-"%><br />
+	<%="Amount To Be Transfer : " + amount + "/-"%><br />
+	
+	<%
+		Connection con;
 
-	<hr style="color: black">
+		con = JdbcConn.setConnection();
+
+	
+	%>
+
+	<hr>
 	<br>
 
 	<br>

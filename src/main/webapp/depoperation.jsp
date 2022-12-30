@@ -52,9 +52,7 @@
 	String amount = request.getParameter("amount");
 	%>
 
-	<%="Id Is : " + id%><br />
-	<%="Acc. No Is : " + accno%><br />
-	<%="Amount To Be Deposite Is : " + amount + "/-"%><br />
+	
 
 	<hr>
 	<br>
@@ -67,12 +65,19 @@
 
 		String query = "select accno from accountdetails where Id = '" + Integer.parseInt(id) + "'";
 		PreparedStatement ps = con.prepareStatement(query);
+		out.println("Invalid Credentials !!!!");
 
 		ResultSet rs = ps.executeQuery();
 
 		while (rs.next()) {
 			 
-			if (rs.getString(1).equals(accno)) {
+			if (rs.getString(3).equals(accno)) {
+				
+			
+					out.println("<br>");
+					out.print("Id Is : " + id);
+					out.print(",   Acc. No Is : " + accno);
+					out.print(",   Amount To Be Deposite Is : " + amount + "/-");
 
 				out.println("You are updating your balance...\n");
 				
