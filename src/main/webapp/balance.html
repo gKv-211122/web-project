@@ -3,6 +3,40 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+
+	<style>
+
+	h1 {
+		background-color: black;
+		text-align: center;
+		color: white;
+	}
+	
+	.btn {
+		background-color: black; 
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 20px;
+		
+	}
+	
+	.btn:hover{
+	
+            background-color: white;
+            color: black;
+            font-size: 20px;
+            cursor: pointer;
+     }
+        
+    .sbtn:hover {
+     
+     	 	background-color: black;
+            color: white;
+            cursor: pointer;
+     
+     }
+</style>
 </head>
 <body>
 
@@ -13,7 +47,12 @@
 		<input type="text" name="userid" placeholder="Enter Your Bank Id">
 		<input type="text" name="accno" placeholder="Enter Your Acc. No">
 		
-		<input type="submit" value="submit"><br />
+		<input type="submit" class="sbtn" value="submit"><br />
 	</form>
+	
+	<br><br>
+	<a href="landingpage.html">
+		<button type="button" class="btn">Home</button>
+	</a>
 </body>
 </html>

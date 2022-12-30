@@ -12,13 +12,35 @@
 <meta charset="ISO-8859-1">
 <title>Banking System</title>
 
-<style>
-h1 {
-	background-color: blue;
-	text-align: center;
-	color: white;
-}
-</style>
+	<style>
+	h1 {
+		background-color: blue;
+		text-align: center;
+		color: white;
+	}
+	
+	h3 {
+		color: green;
+	}
+	
+	.btn {
+		background-color: black; 
+		color: white;
+		width: 100px;
+		height: 30px;
+		font-size: 20px;
+		
+	}
+	
+	.btn:hover{
+	
+            background-color: white;
+            color: black;
+            font-size: 20px;
+            cursor: pointer;
+        }
+	
+	</style>
 
 </head>
 <body>
@@ -34,7 +56,7 @@ h1 {
 	<%="Acc. No Is : " + accno%><br />
 	<%="Amount To Be Deposite Is : " + amount + "/-"%><br />
 
-	<hr style="color: black">
+	<hr>
 	<br>
 	<%
 	try {
@@ -63,18 +85,24 @@ h1 {
 			
 					Integer st = rs1.getInt(1);
 					out.println("<br/>");
-					out.println("<b>current balance is: </b>"+st+"<b>/-</b>");
+					out.println("<b>current balance is: </b>"+"<b>"+st+"</b>"+"<b>/-</b>");
 			
 			
 					// update the balance
+					String query3 = "update accountdetails set balance=? where accno=? ";
 					
+					PreparedStatement psu = con.prepareStatement(query3);
+					psu.setInt(1, (st + (Integer.parseInt(amount))));
+					psu.setString(2, accno);
+					psu.executeUpdate();
 			
-					out.println(", <h3><b> Your Balance Is Successfully Updated !!!</b></h3>");
-				
+			
+					out.println(", <h3 ><b> Your Amount Is Successfully Deposite !!!</b></h3>");
+					out.println("<h4 >Updated Balance Is: </h4>"+"<b>"+(st + (Integer.parseInt(amount)))+"</b>"+"<b>/-</b>");
 				}
 
 			} else {
-
+ 
 				out.println("Invalid Credentials !!!! ....");
 			}
 		}
@@ -89,7 +117,7 @@ h1 {
 	<br>
 	<br>
 	<a href="landingpage.html">
-		<button type="button" style="background-color: black; color: white;">Home</button>
+		<button type="button" class="btn">Home</button>
 	</a>
 
 </body>

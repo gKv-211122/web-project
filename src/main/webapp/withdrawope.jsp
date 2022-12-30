@@ -1,6 +1,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.banking.system.JdbcConn"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -11,13 +12,17 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
-<style>
+	<style>
 	h1 {
 		background-color: blue;
 		text-align: center;
 		color: white;
 	}
-
+	
+	h3 {
+		color: green;
+	}
+	
 	.btn {
 		background-color: black; 
 		color: white;
@@ -34,23 +39,24 @@
             font-size: 20px;
             cursor: pointer;
         }
-</style>
+	
+	</style>
 </head>
 <body>
 
-	<h1>
-		<b>YOUR ACCOUNT BALANCE IS... (National Bank) </b>
-	</h1>
-
-
+	<h1>WITHDRAW YOUR AMOUNT...</h1>
 	<%
 	String id = request.getParameter("userid");
 	String accno = request.getParameter("accno");
+	String amount = request.getParameter("amount");
 	%>
 
-	<%="Bank Id : " + id%><br />
+	<%="Id Is : " + id%><br />
 	<%="Acc. No Is : " + accno%><br />
+	<%="Amount To Be Deposite Is : " + amount + "/-"%><br />
 
+	<hr style="color: black">
+	<br>
 	<%
 	try {
 
@@ -67,25 +73,35 @@
 
 			if (rs.getString(1).equals(accno)) {
 
-		out.println("processing...\n");
-		
-		// show available
-		String que2 = "SELECT balance FROM accountdetails where id= '" + Integer.parseInt(id) + "'";
+		out.println("You are withdrawing your balance...\n");
 
+		String que2 = "SELECT balance FROM accountdetails where id= '" + Integer.parseInt(id) + "'";
 		PreparedStatement psd = con.prepareStatement(que2);
 
-		out.println("<br>");
 		ResultSet rs1 = psd.executeQuery();
 
-			while (rs1.next()) {
-			
-			out.println("<br><b>AVAILABLE BALANCE IS >>>> </b>" + "<b>" + rs1.getInt(1) + "</b>" + "<b>/-</b>");
-			
+		while (rs1.next()) {
+
+			Integer st = rs1.getInt(1);
+			out.println("<br/>");
+			out.println("<b>current balance is: </b>" + "<b>" + st + "</b>" + "<b>/-</b>");
+
+			// update the balance
+			String query3 = "update accountdetails set balance=? where accno=? ";
+
+			PreparedStatement psu = con.prepareStatement(query3);
+			psu.setInt(1, (st - (Integer.parseInt(amount))));
+			psu.setString(2, accno);
+			psu.executeUpdate();
+
+			out.println(", <h3 ><b> Your Amount Is Successfully Withdrawl !!!</b></h3>");
+			out.println("<h3 >Updated Balance Is: </h3>" + "<b>" + (st - (Integer.parseInt(amount))) + "</b>"
+					+ "<b>/-</b>");
 		}
 
 			} else {
 
-				out.println("Invalid Credentials !!!! ....");
+		out.println("Invalid Credentials !!!! ....");
 			}
 		}
 
@@ -94,11 +110,10 @@
 		e.printStackTrace();
 		out.print(e);
 	}
-	
 	%>
 
 	<br>
-	<br>
+
 	<a href="landingpage.html">
 		<button type="button" class="btn">Home</button>
 	</a>
