@@ -1,0 +1,128 @@
+@charset "ISO-8859-1";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url("bkimage.png");
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: 3000px 1200px ;
+    
+
+
+}
+
+.min-continer {
+    
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+}
+
+.container {
+
+            /*border: 2px solid black; */
+            height: 450px;
+            width: 620px;
+            margin-top: 150px;
+            margin-right: 50px;
+
+
+        }
+
+        .container form {
+            padding-top: 3%;
+            padding-left: 5%;
+
+        }
+
+        .container form button {
+            text-align: center;
+        }
+
+        .fields {
+            font-size: 20px;
+            font-weight: 800;
+            width: 490px;
+            height: 40px;
+
+
+        }
+
+        label {
+            color: rgb(236, 229, 229);
+        }
+
+        .btn {
+            margin-top: 20px;
+            font-size: 20px;
+            margin-left: 0px;
+            border-radius: 10px;
+            border: 2px solid white;
+            height: 40px;
+            width: 120px;
+            background-color: blue;
+            color: white;
+        }
+         .lbtn {
+            margin-top: 20px;
+            font-size: 20px;
+            margin-left: 0px;
+            border-radius: 10px;
+            border: 2px solid white;
+            height: 40px;
+            width: 120px;
+            background-color: blue;
+            color: white;
+        }
+        
+        
+        .btn:hover{
+            background-color: white;
+            color: blue;
+            cursor: pointer;
+        }
+        .lbtn:hover {
+        	background-color: black;
+            color: blue;
+            cursor: pointer;
+        }
+        	
+        
+
+
+        .psw {
+            margin-left: 54%;
+        }
+
+        .content {
+            /* border: 2px solid black; */
+            height: 220px;
+            width: 750px;
+            margin-top: 18%;
+            margin-right: 20%;
+            margin-left: 2%;
+            
+
+        }
+
+        .text {
+            text-align: center;
+            color: white;
+            font-size: large;
+
+
+        }
+
+        .heading {
+            text-align: center;
+            color: white;
+            font-size: 30px;
+
+
+        }

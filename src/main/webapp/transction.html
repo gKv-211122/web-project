@@ -45,18 +45,19 @@
 	<form action="transctionope.jsp">
 		
 		<h3>Sender Details</h3>
-		<input type="text" name="userid" placeholder="Enter Sender Id">
-		<input type="text" name="accno" placeholder="Enter Sender Acc. No">
+		<input type="number" name="sid" required placeholder="Enter Sender Id">
+		<input type="number" name="saccno" required placeholder="Enter Sender Acc. No">
 		
 		<br>
 		<br>
 		<h3>Receiver Details</h3>
-		<input type="text" name="userid" placeholder="Enter receiver Id">
-		<input type="text" name="accno" placeholder="Enter receiver Acc. No">
+		<input type="number" name="rid" required placeholder="Enter receiver Id">
+		<input type="number" name="raccno " required placeholder="Enter receiver Acc. No">
 		
 		<br>
 		<br>
-		<input type="text" name="amount" style="width: 200px" placeholder="Amount, For Tranction">
+	    <hr>
+		<input type="number" name="samount" required style="width: 200px" placeholder="Amount, For Tranction">
 		
 		<input type="submit" class="sbtn" value="send"><br />
 	</form>

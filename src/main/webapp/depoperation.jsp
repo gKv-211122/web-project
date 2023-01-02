@@ -1,11 +1,14 @@
+<%@page import="com.banking.system.Deposit"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.banking.system.JdbcConn"%>
+<%@page import="com.banking.system.Deposit"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ page errorPage="error.jsp" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +67,7 @@
 
 		con = JdbcConn.setConnection();
 
-		String query = "select * from accountdetails where Id = '" + Integer.parseInt(id) + "'";
+		String query = "select id, accno from accountdetails where Id = '" + Integer.parseInt(id) + "' AND accno = '" + accn + "'";
 		// String query = "select accno from accountdetails where Id = '" + Integer.parseInt(id) + "' and accno='" + accn + "'";
 		// out.println("Invalid Credentials !!!!");
 		PreparedStatement ps = con.prepareStatement(query);
@@ -73,7 +76,7 @@
 		while (rs.next()) { 
 			 
 			if (rs.getString(2).equals(accn)) {
-				
+				// rs.getString(1).equals(Integer.parseInt(id)) && 
 			
 					out.println("<br>");
 					out.print("Id Is : " + id);
@@ -119,7 +122,9 @@
 
 		e.printStackTrace();
 		out.print(e);
-	}
+	} 
+	
+		// Deposit.checkCredentials(id, accn, amount);
 	
 
 	%>

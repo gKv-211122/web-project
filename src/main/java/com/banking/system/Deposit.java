@@ -1,7 +1,5 @@
 package com.banking.system;
 
-import java.io.PrintWriter;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +8,7 @@ import java.sql.ResultSet;
 
 public class Deposit {
 	
-	 PrintWriter out =  new Writer();
+	
 	 
 	public static void checkCredentials(String id, String accn, String amount) {
 		
@@ -31,13 +29,13 @@ public class Deposit {
 				if (rs.getString(2).equals(accn)) {
 					
 				
-						out.println("<br>");
-						out.print("Id Is : " + id);
-						out.print(",   Acc. No Is : " + accn);
-						out.print(",   Amount To Be Deposite Is : " + amount + "/-");
+						System.out.println("<br>");
+						System.out.print("Id Is : " + id);
+						System.out.print(",   Acc. No Is : " + accn);
+						System.out.print(",   Amount To Be Deposite Is : " + amount + "/-");
 						
-						out.println("<br/><br/>");
-						out.println(" You are updating your balance...\n");
+						System.out.println("<br/><br/>");
+						System.out.println(" You are updating your balance...\n");
 					
 						String que2 = "SELECT balance FROM accountdetails where id= '" + Integer.parseInt(id) + "'";
 					
@@ -48,8 +46,8 @@ public class Deposit {
 						while (rs1.next()) {
 				
 							Integer st = rs1.getInt(1);
-							out.println("<br/><br/>");
-							out.println("<b>current balance is: </b>"+"<b>"+st+"</b>"+"<b>/-</b>");
+							System.out.println("<br/><br/>");
+							System.out.println("<b>current balance is: </b>"+"<b>"+st+"</b>"+"<b>/-</b>");
 				
 				
 							// update the balance
@@ -61,20 +59,20 @@ public class Deposit {
 							psu.executeUpdate();
 				
 				
-							out.println(", <h3 ><b> Your Amount Is Successfully Deposite !!!</b></h3>");
-							out.println("<h4 >Updated Balance Is: </h4>"+"<b>"+(st + (Integer.parseInt(amount)))+"</b>"+"<b>/-</b>");
+							System.out.println(", <h3 ><b> Your Amount Is Successfully Deposite !!!</b></h3>");
+							System.out.println("<h4 >Updated Balance Is: </h4>"+"<b>"+(st + (Integer.parseInt(amount)))+"</b>"+"<b>/-</b>");
 					}
 
 				} else {
 	 
-					out.println("Invalid Credentials !!!! ....");
+					System.out.println("Invalid Credentials !!!! ....");
 				}
 			}
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
-			out.print(e);
+			System.out.print(e);
 		}
 		
 	}
