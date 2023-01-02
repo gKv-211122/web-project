@@ -67,7 +67,7 @@
 
 			if (rs.getString(1).equals(accno)) {
 
-		out.println("processing...\n");
+			out.println("processing...\n");
 		
 		// show available
 		String que2 = "SELECT balance FROM accountdetails where id= '" + Integer.parseInt(id) + "'";

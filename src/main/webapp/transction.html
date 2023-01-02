@@ -43,12 +43,22 @@
 	<h1>Welcome to NB, Transction Service...</h1>
 	
 	<form action="transctionope.jsp">
-	
-		<input type="text" name="userid" placeholder="Enter Your Id">
-		<input type="text" name="accno" placeholder="Enter Your Acc. No">
-		<input type="text" name="amount" style="width: 200px" placeholder="Enter Your Amount, For Tranction">
 		
-		<input type="submit" class="sbtn" value="submit"><br />
+		<h3>Sender Details</h3>
+		<input type="text" name="userid" placeholder="Enter Sender Id">
+		<input type="text" name="accno" placeholder="Enter Sender Acc. No">
+		
+		<br>
+		<br>
+		<h3>Receiver Details</h3>
+		<input type="text" name="userid" placeholder="Enter receiver Id">
+		<input type="text" name="accno" placeholder="Enter receiver Acc. No">
+		
+		<br>
+		<br>
+		<input type="text" name="amount" style="width: 200px" placeholder="Amount, For Tranction">
+		
+		<input type="submit" class="sbtn" value="send"><br />
 	</form>
 	
 	<br><br>
