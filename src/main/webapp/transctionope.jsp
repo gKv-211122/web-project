@@ -4,6 +4,9 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.banking.system.JdbcConn"%>
+<%@page import="java.io.IOException" %>
+<%@page import="java.io.FileWriter" %>
+<%@page import="java.io.File" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -49,10 +52,14 @@ h4 {
 	<%
 	String sid = request.getParameter("sid");
 	String saccn = request.getParameter("saccno");
-	String samount = request.getParameter("samount");
+	
 
 	String rid = request.getParameter("rid");
 	String raccn = request.getParameter("raccno");
+	
+	String samount = request.getParameter("samount");
+	
+	
 	%>
 
 	
@@ -60,6 +67,8 @@ h4 {
 	<%
 	
 	try {
+		
+		
 
 		Connection con;
 
@@ -81,9 +90,10 @@ h4 {
 
 			if (rs.getString(2).equals(saccn)) {
 		
-		out.println("<br><br>");
-		out.println("processing.... You Transfer");
-		out.println("<br><br>");
+				out.println("<br><br>");
+				out.println("processing.... You Transfer");
+				out.println(raccn);
+				out.println("<br><br>");
 
 		String que2 = "SELECT balance FROM accountdetails where id= '" + Integer.parseInt(sid) + "'";
 		PreparedStatement psd = con.prepareStatement(que2);
@@ -114,7 +124,7 @@ h4 {
 					} */
 
 					// String que4 = "SELECT balance FROM accountdetails where id= '" + Integer.parseInt(rid) + "'";
-					Integer bal = rs1.getInt(1);
+					Integer sbal = rs1.getInt(1);
 					
 					
 
@@ -122,7 +132,7 @@ h4 {
 					String query3 = "update accountdetails set balance=? where accno=? ";
 
 					PreparedStatement psu = con.prepareStatement(query3);
-					psu.setInt(1, (bal - (Integer.parseInt(samount))));
+					psu.setInt(1, (sbal - (Integer.parseInt(samount))));
 					psu.setString(2, saccn);
 					psu.execute();
 
@@ -146,13 +156,14 @@ h4 {
 						String rque2 = "update accountdetails set balance=? where accno=? ";
 
 						PreparedStatement rsu = con.prepareStatement(query3);
-						rsu.setInt(1, (bal + (Integer.parseInt(samount))));
+						rsu.setInt(1, (rbal + (Integer.parseInt(samount))));
 						rsu.setString(2, raccn);
 						rsu.execute();
 						
 					}
 					
 					out.println("<br>");
+					out.println("From: ");
 					out.print("Id Is : " + sid);
 					out.print(",   Acc. No Is : " + saccn);
 					out.print(",   Transfer Amount Is : " + samount + "/-");
@@ -160,14 +171,40 @@ h4 {
 
 
 					out.println("<br>");
+					out.println("To: ");
 					out.print("Id Is : " + rid);
 					out.print(",   Acc. No Is : " + raccn); 
 					
 					out.print(", <h3 ><b> Transaction Is Successful !!!</b></h3>");
-					out.println("<h3 >Avialable Balance Is: </h3>" + "<b>" + (bal - (Integer.parseInt(samount))) + "</b>"
+					out.println("<h3 >Avialable Balance Is: </h3>" + "<b>" + (sbal - (Integer.parseInt(samount))) + "</b>"
 							+ "<b>/-</b>");
 
 					
+					File fileName = new File("D:/New folder/BankSystem/src/main/webapp/transfer.txt");
+					try {
+						
+						FileWriter fw = new FileWriter(fileName, true);
+					     
+						fw.write("\nTransfer, Details are: ");
+						fw.write("\n\nSender Details Are: ");
+						fw.write("\nid: "+sid+"\nACC.No: "+ saccn+"\nTransfer Amount: "+samount+"/-"+"\nAvialable Balance is: " +(sbal - (Integer.parseInt(samount)))+"/-");
+						fw.write("\n\nReceiver Details Are: ");
+						fw.write("\n=======================================\n");
+						fw.write("\nid: "+rid+"\nACC.No: "+ raccn);
+						fw.write("\n=======================================\n");
+						fw.write("\n----------------------------------------------------\n");
+						fw.flush();
+						fw.close();
+						
+						fileName.setReadOnly();
+					    
+						
+						
+					} catch(IOException e) {
+						
+						System.out.println("An error occurred.");
+					    e.printStackTrace();
+					}
 					
 					
 					

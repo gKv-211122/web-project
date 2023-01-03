@@ -1,0 +1,6 @@
+
+Balance Check, Your Details are: 
+id: 101
+ACC.No: 5645678
+Available Balance is: 109199/-
+----------------------------------------------------

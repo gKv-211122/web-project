@@ -4,6 +4,9 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.banking.system.JdbcConn"%>
+<%@page import="java.io.IOException" %>
+<%@page import="java.io.FileWriter" %>
+<%@page import="java.io.File" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -98,21 +101,41 @@
 					out.print(",   Amount To Be Withdraw Is : " + amount + "/-");
 					
 					
-					Integer st = rs1.getInt(1);
+					Integer bal = rs1.getInt(1);
 					out.println("<br/>");
-					out.println("<b>current balance is: </b>" + "<b>" + st + "</b>" + "<b>/-</b>");
+					out.println("<b>current balance is: </b>" + "<b>" + bal + "</b>" + "<b>/-</b>");
 
 					// update the balance
 					String query3 = "update accountdetails set balance=? where accno=? ";
 
 					PreparedStatement psu = con.prepareStatement(query3);
-					psu.setInt(1, (st - (Integer.parseInt(amount))));
+					psu.setInt(1, (bal - (Integer.parseInt(amount))));
 					psu.setString(2, accno);
 					psu.executeUpdate();
 
 					out.println(", <h3 ><b> Your Amount Is Successfully Withdrawl !!!</b></h3>");
-					out.println("<h3 >Avialable Balance Is: </h3>" + "<b>" + (st - (Integer.parseInt(amount))) + "</b>"
+					out.println("<h3 >Avialable Balance Is: </h3>" + "<b>" + (bal - (Integer.parseInt(amount))) + "</b>"
 							+ "<b>/-</b>");
+					
+					
+					File fileName = new File("D:/New folder/BankSystem/src/main/webapp/withdraw.txt");
+					try {
+						
+						FileWriter fw = new FileWriter(fileName, true);
+					     
+						fw.write("\nWithdraw Successfully,  Details are: ");
+						fw.write("\nid: "+id+"\nACC.No: "+"\nWithdraw Amount: "+amount+"/-"+ accno+"\nAvailable Balance is: " +(bal - (Integer.parseInt(amount)))+"/-");
+						fw.write("\n----------------------------------------------------\n");
+						fw.flush();
+						fw.close();
+					    
+						
+						
+					} catch(IOException e) {
+						
+						System.out.println("An error occurred.");
+					    e.printStackTrace();
+				}
 				}
 				
 			}catch(Exception e) {

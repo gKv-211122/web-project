@@ -8,9 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>gihegiphp</h1>
-<%
-	out.print("<h1>gihegiphp</h1>");
-%>
+
+	<h3>Sorry an exception occured!</h3> 
+
+	
+
 </body>
 </html>

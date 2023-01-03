@@ -42,22 +42,20 @@
 					
 					out.println("You Are Succesfully Logined...");
 					
+					response.sendRedirect("landingpage.html");  
 					
 					
 					
 					
-					
-					
-				} else {
-					
-					out.println("You Are Not registered, Please Fisrt register....");
-				}
+				} 
 			}
+			
+			out.println("You Are Not registered, Please Fisrt register to login....");
 			
 			
 		}catch(Exception e) {
 			
-			
+			out.println(e.getMessage());
 		}
 	
 	%>

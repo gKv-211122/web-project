@@ -6,6 +6,9 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.banking.system.JdbcConn"%>
 <%@page import="com.banking.system.Deposit"%>
+<%@page import="java.io.IOException" %>
+<%@page import="java.io.FileWriter" %>
+<%@page import="java.io.File" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<%@ page errorPage="error.jsp" %>  
@@ -91,32 +94,56 @@
 					PreparedStatement psd = con.prepareStatement(que2);
 
 					ResultSet rs1 = psd.executeQuery();
-
+					
+					Integer bal;
 					while (rs1.next()) {
 			
-						Integer st = rs1.getInt(1);
+						bal = rs1.getInt(1);
 						out.println("<br/><br/>");
-						out.println("<b>current balance is: </b>"+"<b>"+st+"</b>"+"<b>/-</b>");
+						out.println("<b>current balance is: </b>"+"<b>"+bal+"</b>"+"<b>/-</b>");
 			
 			
 						// update the balance
 						String query3 = "update accountdetails set balance=? where accno=? ";
 					
 						PreparedStatement psu = con.prepareStatement(query3);
-						psu.setInt(1, (st + (Integer.parseInt(amount))));
+						psu.setInt(1, (bal + (Integer.parseInt(amount))));
 						psu.setString(2, accn);
 						psu.executeUpdate();
 			
 			
 						out.println(", <h3 ><b> Your Amount Is Successfully Deposite !!!</b></h3>");
-						out.println("<h4 >Updated Balance Is: </h4>"+"<b>"+(st + (Integer.parseInt(amount)))+"</b>"+"<b>/-</b>");
+						out.println("<h4 >Updated Balance Is: </h4>"+"<b>"+(bal + (Integer.parseInt(amount)))+"</b>"+"<b>/-</b>");
+						
+						File fileName = new File("D:/New folder/BankSystem/src/main/webapp/deposit.txt");
+						try {
+							
+							FileWriter fw = new FileWriter(fileName, true);
+						     
+							fw.write("\nDeposit Successfully, Your Details are: ");
+							fw.write("\nid: "+id+"\nACC.No: "+ accn+"\nDeposit Amount: "+amount+"/-"+"\nUpdated Balance is: " +(bal + (Integer.parseInt(amount)))+"/-");
+							fw.write("\n----------------------------------------------------\n");
+							fw.flush();
+							fw.close();
+						    
+							
+							
+						} catch(IOException e) {
+							
+							System.out.println("An error occurred.");
+						    e.printStackTrace();
+						}
 				}
 
 			} else {
  
 				out.println("Invalid Credentials !!!! ....");
 			}
+			
+			
 		}
+		
+		
 
 	} catch (Exception e) {
 

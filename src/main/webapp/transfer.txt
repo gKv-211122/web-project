@@ -1,0 +1,244 @@
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 10000/-
+Avialable Balance is: 89199/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 10000/-
+Avialable Balance is: 79199/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 79099/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 78999/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 78899/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 78799/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 78699/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 78599/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 78499/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 78399/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 78299/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 78199/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 78099/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 77999/-
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 77899/-
+
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------
+
+Transfer, Details are: 
+
+Sender Details Are: 
+id: 101
+ACC.No: 5645678
+Transfer Amount: 100/-
+Avialable Balance is: 77299/-
+
+Receiver Details Are: 
+=======================================
+
+id: 103
+ACC.No: null
+=======================================
+
+----------------------------------------------------

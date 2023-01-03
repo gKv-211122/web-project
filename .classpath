@@ -9,5 +9,14 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/D1/Downloads/MySqlJdbcDriver/mysql-connector-j-8.0.31.jar"/>
+	<classpathentry kind="lib" path="C:/Users/D1/Downloads/pdfbox-debugger-3.0.0-alpha3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/D1/Downloads/pdfbox-tools-3.0.0-alpha3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/D1/Downloads/xmpbox-3.0.0-alpha3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/D1/Downloads/preflight-3.0.0-alpha3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/D1/Downloads/fontbox-3.0.0-alpha3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/D1/Downloads/pdfbox-3.0.0-alpha3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/D1/Downloads/preflight-app-3.0.0-alpha3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/D1/Downloads/debugger-app-3.0.0-alpha3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/D1/Downloads/pdfbox-app-3.0.0-alpha3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

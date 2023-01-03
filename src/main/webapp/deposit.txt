@@ -1,0 +1,55 @@
+
+id: 101
+ACC.No: 5645678
+Deposit Amount: 10000
+Updated Balance is: 69176
+----------------------------------------------------
+
+Deposit Successfully, Your Details are: 
+id: 101
+ACC.No: 5645678
+Deposit Amount: 10000
+Updated Balance is: 79176
+----------------------------------------------------
+
+Deposit Successfully, Your Details are: 
+id: 101
+ACC.No: 5645678
+Deposit Amount: 10000/-
+Updated Balance is: 89176/-
+----------------------------------------------------
+
+Deposit Successfully, Your Details are: 
+id: 101
+ACC.No: 5645678
+Deposit Amount: 10000/-
+Updated Balance is: 99176/-
+----------------------------------------------------
+
+Deposit Successfully, Your Details are: 
+id: 101
+ACC.No: 5645678
+Deposit Amount: 10000/-
+Updated Balance is: 109176/-
+----------------------------------------------------
+
+Deposit Successfully, Your Details are: 
+id: 101
+ACC.No: 5645678
+Deposit Amount: 23/-
+Updated Balance is: 109199/-
+----------------------------------------------------
+
+Deposit Successfully, Your Details are: 
+id: 101
+ACC.No: 5645678
+Deposit Amount: 23/-
+Updated Balance is: 77322/-
+----------------------------------------------------
+
+Deposit Successfully, Your Details are: 
+id: 101
+ACC.No: 5645678
+Deposit Amount: 23/-
+Updated Balance is: 77345/-
+----------------------------------------------------

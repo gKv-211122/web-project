@@ -19,6 +19,35 @@
         
         
  	</style>
+ 	
+ 	<script>
+	
+	
+	function validateForm() {
+		var email = document.getElementById("email").value;
+		var password = document.getElementById("psw").value;
+        var confirmPassword = document.getElementById("rpsw").value;
+		if (email.length < 1) {
+			alert("email must be filled out");
+			return false;
+		}
+
+		if (password.length < 1) {
+			alert("password must be filled out");
+			return false;
+		}
+		
+        if (password != confirmPassword) {
+            alert("Password & confirm password do not match!");
+            return false;
+        }
+       
+        else  
+        	return true;
+	}
+
+</script>
+	
 
 </head>
 <body>
@@ -41,7 +70,7 @@
 
 		<div class="container">
 
-			<form action="storeindb.jsp">
+			<form action="storeindb.jsp" onSubmit="validateForm()" method="post">
 				<h1
 					style="text-align: center; color: white; margin-right: 35px;">Sign
 					Up</h1>
@@ -50,18 +79,18 @@
 				<label for="uname" style="font-size: 25px;"><b>Enter User Name</b></label><br> 
 				<input type="text" class="fields" placeholder="Enter User Name" name="uname" required> 
 					
-				<labelfor="email" style="font-size: 25px;"><b>Email Id</b></label><br>
-				<input type="text" class="fields" placeholder="Enter Email Address" name="email" required> <br> <br> 
+				<labelfor="email" style="font-size: 25px; color: white;"><b>Email Id</b></label><br>
+				<input type="text" class="fields" id="email" placeholder="Enter Email Address" name="email" required> <br> <br> 
 					
 				<label for="contact" style="font-size: 25px;"><b>Enter Contact Number</b></label><br>
 				<input type="number" class="fields" placeholder="Re Enter Password" id="psc" name="contact" required><br>
 					
 				<label for="psw" style="font-size: 25px;"><b>Password</b></label><br> 
-				<input type="text" class="fields" placeholder="Enter Password" id="ps" name="psw" required><br> 
+				<input type="text" class="fields" placeholder="Enter Password" id="psw" name="psw" required><br> 
 				
 				
 				<label for="rpsw" style="font-size: 25px;"><b>Re Enter Password</b></label><br>
-				<input type="text" class="fields" placeholder="Re Enter Password" id="psc" name="rpsw" required><br>
+				<input type="text" class="fields" placeholder="Re Enter Password" id="rpsw" name="rpsw" required><br>
 
 				<button type="submit" class=" btn">SuignUp</button>
 				<button type="submit" class=" lbtn"><a href="login.html" style="text-decoration: none; color: white;">Log In</a></button><br>
@@ -83,34 +112,9 @@
 
 	</div>
 	
-	<script>
 	
 	
-	function validateForm() {
-		var email = document.getElementById("email").value;
-		if (email.length < 1) {
-			alert("email must be filled out");
-			return false;
-		}
+	
 
-		if (psw.length < 1) {
-			alert("password must be filled out");
-			return false;
-		}
-		var password = document.getElementById("ps").value;
-		
-        var confirmPassword = document.getElementById("psc").value;
-        if (password != confirmPassword) {
-            alert("Passwords do not match.");
-            return false;
-        }
-        return true;
-	}
-
-</script>
-	
-	
-	
-	</script>
 </body>
 </html>

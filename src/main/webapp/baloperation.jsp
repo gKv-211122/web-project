@@ -3,6 +3,9 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="com.banking.system.JdbcConn"%>
+<%@page import="java.io.IOException" %>
+<%@page import="java.io.FileWriter" %>
+<%@page import="java.io.File" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -80,6 +83,25 @@
 			while (rs1.next()) {
 			
 			out.println("<br><b>AVAILABLE BALANCE IS >>>> </b>" + "<b>" + rs1.getInt(1) + "</b>" + "<b>/-</b>");
+			
+			File fileName = new File("D:/New folder/BankSystem/src/main/webapp/balance.txt");
+			try {
+				
+				FileWriter fw = new FileWriter(fileName, true);
+			     
+				fw.write("\nBalance Check, Your Details are: ");
+				fw.write("\nid: "+id+"\nACC.No: "+ accno+"\nAvailable Balance is: " +(rs1.getInt(1))+"/-");
+				fw.write("\n----------------------------------------------------\n");
+				fw.flush();
+				fw.close();
+			    
+				
+				
+			} catch(IOException e) {
+				
+				System.out.println("An error occurred.");
+			    e.printStackTrace();
+			}
 			
 		}
 

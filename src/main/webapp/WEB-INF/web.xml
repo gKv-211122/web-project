@@ -7,4 +7,9 @@
     <welcome-file>landingpage.htm</welcome-file>
   
   </welcome-file-list>
+  
+  <error-page>   
+  <location>/error.jsp</location>  
+  </error-page> 
+  
 </web-app>
