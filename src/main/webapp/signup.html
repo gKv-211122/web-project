@@ -24,6 +24,7 @@
 	
 	
 	function validateForm() {
+		
 		var email = document.getElementById("email").value;
 		var password = document.getElementById("psw").value;
         var confirmPassword = document.getElementById("rpsw").value;
@@ -37,16 +38,13 @@
 			return false;
 		}
 		
-        if (password != confirmPassword) {
-            alert("Password & confirm password do not match!");
-            return false;
-        }
-       
-        else  
-        	return true;
-	}
+			if (password!=confirmPassword) {
+					alert("Password & confirm password do not match!");
+					return false;
+				}
 
-</script>
+			}
+		</script>
 	
 
 </head>
@@ -70,7 +68,7 @@
 
 		<div class="container">
 
-			<form action="storeindb.jsp" onSubmit="validateForm()" method="post">
+			<form action="storeindb.jsp" onsubmit="return validateForm()" method="post">
 				<h1
 					style="text-align: center; color: white; margin-right: 35px;">Sign
 					Up</h1>

@@ -105,7 +105,7 @@ h4 {
 			try {
 
 				if (rs1.getInt(1) < Integer.parseInt(samount)) {
-
+					
 					out.println("<br><br>");
 					out.println("<h4 >INSUFFICIENT BALANCE !!!</h4>");
 
@@ -114,6 +114,7 @@ h4 {
 					String rquery = "select id, accno from accountdetails where id = '" + Integer.parseInt(rid) +"'";
 					PreparedStatement psr = con.prepareStatement(query);
 					ResultSet recrs = psr.executeQuery();
+					
 					
 					/*while(recrs.next()) {
 						
@@ -160,6 +161,8 @@ h4 {
 						rsu.setString(2, raccn);
 						rsu.execute();
 						
+						
+						
 					}
 					
 					out.println("<br>");
@@ -169,7 +172,7 @@ h4 {
 					out.print(",   Transfer Amount Is : " + samount + "/-");
 					out.println("<br>");
 
-
+					
 					out.println("<br>");
 					out.println("To: ");
 					out.print("Id Is : " + rid);
@@ -210,6 +213,7 @@ h4 {
 					
 					
 				}
+				 
 
 			} catch (Exception e) {
 
