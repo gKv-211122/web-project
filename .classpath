@@ -18,5 +18,7 @@
 	<classpathentry kind="lib" path="C:/Users/D1/Downloads/preflight-app-3.0.0-alpha3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/D1/Downloads/debugger-app-3.0.0-alpha3.jar"/>
 	<classpathentry kind="lib" path="C:/Users/D1/Downloads/pdfbox-app-3.0.0-alpha3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/D1/Downloads/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/D1/Downloads/json-taglib-0.4.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -7,6 +7,7 @@
 <%@page import="java.io.IOException" %>
 <%@page import="java.io.FileWriter" %>
 <%@page import="java.io.File" %>
+<%@page language="java" import="org.json.simple.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -62,6 +63,9 @@
 	<hr style="color: black">
 	<br>
 	<%
+	
+	JSONObject json = new JSONObject();
+	
 	try {
 
 		Connection con;
@@ -116,6 +120,14 @@
 					out.println(", <h3 ><b> Your Amount Is Successfully Withdrawl !!!</b></h3>");
 					out.println("<h3 >Avialable Balance Is: </h3>" + "<b>" + (bal - (Integer.parseInt(amount))) + "</b>"
 							+ "<b>/-</b>");
+					
+					
+					out.println("<br>");
+					json.put("Id ", id);
+				    json.put("Acc. No", accno);
+				    json.put("Withdraw Amount", amount);
+				    json.put("Avail. Balance is ",(bal - (Integer.parseInt(amount))));
+				    out.print(json);
 					
 					
 					File fileName = new File("D:/New folder/BankSystem/src/main/webapp/withdraw.txt");

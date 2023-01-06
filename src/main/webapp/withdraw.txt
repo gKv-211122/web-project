@@ -5,3 +5,80 @@ ACC.No:
 Withdraw Amount: 10000/-5645678
 Available Balance is: 99199/-
 ----------------------------------------------------
+
+Withdraw Successfully,  Details are: 
+id: 101
+ACC.No: 
+Withdraw Amount: 23/-5645678
+Available Balance is: 52979/-
+----------------------------------------------------
+
+Withdraw Successfully,  Details are: 
+id: 101
+ACC.No: 
+Withdraw Amount: 23/-5645678
+Available Balance is: 52956/-
+----------------------------------------------------
+
+Withdraw Successfully,  Details are: 
+id: 101
+ACC.No: 
+Withdraw Amount: 23/-5645678
+Available Balance is: 52933/-
+----------------------------------------------------
+
+Withdraw Successfully,  Details are: 
+id: 101
+ACC.No: 
+Withdraw Amount: 23/-5645678
+Available Balance is: 52910/-
+----------------------------------------------------
+
+Withdraw Successfully,  Details are: 
+id: 101
+ACC.No: 
+Withdraw Amount: 23/-5645678
+Available Balance is: 62887/-
+----------------------------------------------------
+
+Withdraw Successfully,  Details are: 
+id: 101
+ACC.No: 
+Withdraw Amount: 10000/-5645678
+Available Balance is: 52887/-
+----------------------------------------------------
+
+Withdraw Successfully,  Details are: 
+id: 101
+ACC.No: 
+Withdraw Amount: 565/-5645678
+Available Balance is: 52022/-
+----------------------------------------------------
+
+Withdraw Successfully,  Details are: 
+id: 101
+ACC.No: 
+Withdraw Amount: 10000/-5645678
+Available Balance is: 41922/-
+----------------------------------------------------
+
+Withdraw Successfully,  Details are: 
+id: 101
+ACC.No: 
+Withdraw Amount: 565/-5645678
+Available Balance is: 69957/-
+----------------------------------------------------
+
+Withdraw Successfully,  Details are: 
+id: 101
+ACC.No: 
+Withdraw Amount: 565/-5645678
+Available Balance is: 69392/-
+----------------------------------------------------
+
+Withdraw Successfully,  Details are: 
+id: 101
+ACC.No: 
+Withdraw Amount: 565/-5645678
+Available Balance is: 68827/-
+----------------------------------------------------

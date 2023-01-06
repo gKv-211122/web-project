@@ -6,6 +6,7 @@
 <%@page import="java.io.IOException" %>
 <%@page import="java.io.FileWriter" %>
 <%@page import="java.io.File" %>
+<%@page language="java" import="org.json.simple.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -53,8 +54,14 @@
 
 	<%="Bank Id : " + id%><br />
 	<%="Acc. No Is : " + accno%><br />
+	
+	<%
+		
+	%>
 
 	<%
+	
+	JSONObject json = new JSONObject();
 	try {
 
 		Connection con;
@@ -74,6 +81,8 @@
 		
 		// show available
 		String que2 = "SELECT balance FROM accountdetails where id= '" + Integer.parseInt(id) + "'";
+		
+		
 
 		PreparedStatement psd = con.prepareStatement(que2);
 
@@ -83,6 +92,16 @@
 			while (rs1.next()) {
 			
 			out.println("<br><b>AVAILABLE BALANCE IS >>>> </b>" + "<b>" + rs1.getInt(1) + "</b>" + "<b>/-</b>");
+			
+			
+			out.println("<br>");
+		    json.put("Balance is ",rs1.getInt(1));
+		    json.put("Id ", id);
+		    json.put("Acc. No", accno);
+		    out.print(json);
+		    
+		    
+		   
 			
 			File fileName = new File("D:/New folder/BankSystem/src/main/webapp/balance.txt");
 			try {
@@ -116,6 +135,8 @@
 		e.printStackTrace();
 		out.print(e);
 	}
+	
+	
 	
 	%>
 

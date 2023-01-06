@@ -9,6 +9,8 @@
 <%@page import="java.io.IOException" %>
 <%@page import="java.io.FileWriter" %>
 <%@page import="java.io.File" %>
+<%@page language="java" import="org.json.simple.*"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 	<%@ page errorPage="error.jsp" %>  
@@ -63,6 +65,7 @@
 	<hr>
 	<br>
 	<%
+	JSONObject json = new JSONObject();
 	
 	try {
 
@@ -80,6 +83,8 @@
 			 
 			if (rs.getString(2).equals(accn)) {
 				// rs.getString(1).equals(Integer.parseInt(id)) && 
+				
+					
 			
 					out.println("<br>");
 					out.print("Id Is : " + id);
@@ -94,6 +99,10 @@
 					PreparedStatement psd = con.prepareStatement(que2);
 
 					ResultSet rs1 = psd.executeQuery();
+					
+					 	
+					    
+					    
 					
 					Integer bal;
 					while (rs1.next()) {
@@ -114,6 +123,12 @@
 			
 						out.println(", <h3 ><b> Your Amount Is Successfully Deposite !!!</b></h3>");
 						out.println("<h4 >Updated Balance Is: </h4>"+"<b>"+(bal + (Integer.parseInt(amount)))+"</b>"+"<b>/-</b>");
+						
+						out.println("<br>");
+						json.put("Id ", id);
+					    json.put("Acc. No", accn);
+					    json.put("Updated Balance Is", (bal + (Integer.parseInt(amount))));
+					    out.print(json);
 						
 						File fileName = new File("D:/New folder/BankSystem/src/main/webapp/deposit.txt");
 						try {
